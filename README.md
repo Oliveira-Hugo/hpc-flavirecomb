@@ -22,11 +22,11 @@ Step 01 (RDP5) is currently incompatible with HPC environments because RDP5 is G
 A replacement using OpenRDP (CLI-capable) is under evaluation and will be integrated in future versions.
 
 ## Dependencies:
-1. Python (≥3.9)
--biopython
--pandas
--snipit
+1. Python (≥3.9)  
+-biopython  
+-pandas  
+-snipit  
 
-2. IQ-TREE 3
+2. IQ-TREE v2.0.7
 
 3. TNT v1.6
