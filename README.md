@@ -9,10 +9,9 @@ hpc-flavirecomb integrates sequence alignemnt and annotation, recombination dete
 01_hpc_flavirecomb/  
 ├── 00_FLAVi/         # Annotation, quality control, and MSA generation for flavivirus genomes  
 ├── 01_RDP5/          # Recombination event detection (GUI-only, to be replaced by OpenRDP)  
-├── 02_SNIPIT/        # SNP extraction from recombinant and parental sequences  
-├── 03_IQTREE_TNT/    # Phylogenetic tree inference using IQ-TREE2 and TNT  
-├── 04_YBYRA/         # Quantification of recombinant impact on tree topology/branch lengths  
-└── 05_STATISTICS/    # Statistical summary of SNPs, branch lengths, and phylogenetic distances
+├── 02_SNIPIT/        # SNP identification on recombinant and parental sequences  
+├── 03_IQTREE_TNT/    # Phylogenetic tree inference using IQ-TREE2 and TNT    
+└── 04_YBYRA/         # Statistical summary of SNPs, branch lengths, phylogenetic distances between recombinants, and recombinants impact on tree topology
 
 ## Current Limitations
 
