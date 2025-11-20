@@ -5,9 +5,11 @@ import os
 from pathlib import Path
 
 root = Path(__file__).resolve().parent.parent
+script_dir = Path(__file__).resolve().parent
+project_root = script_dir.parent.parent
 
-fasta_file = root / "data" / "annotated_denv_genomes_nm.fasta"
-table_file = root / "data" / "recomb_and_parents.csv"
+fasta_file = project_root / "input" / "annotated_denv_genomes_nm.fasta"
+table_file = project_root / "input" / "recomb_and_parents.csv"
 output_dir = root / "data" / "fragments"
 alignment_length = 15213  # fixed alignment length
 
