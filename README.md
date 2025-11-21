@@ -8,10 +8,10 @@ hpc-flavirecomb integrates sequence alignemnt and annotation, recombination dete
 
 01_hpc_flavirecomb/  
 ├── 00_FLAVi/         # Annotation, quality control, and MSA generation for flavivirus genomes  
-├── 01_RDP5/          # Recombination event detection (GUI-only, to be replaced by OpenRDP)  
+├── 01_RDP5/          # Recombination event detection (GUI-only, to be replaced by OpenRDP or related tool)  
 ├── 02_SNIPIT/        # SNP identification on recombinant and parental sequences  
 ├── 03_IQTREE_TNT/    # Phylogenetic tree inference using IQ-TREE2 and TNT    
-└── 04_YBYRA/         # Statistical summary of SNPs, branch lengths, phylogenetic distances between recombinants, and recombinants impact on tree topology
+└── 04_TNT_YBYRA/         # Statistical summary of SNPs, branch lengths, phylogenetic distances between recombinants, and recombinants impact on tree topology
 
 ## Current Limitations
 
@@ -19,6 +19,8 @@ Step 00 (FLAVi) is not yet implemented because it depends on the output structur
 
 Step 01 (RDP5) is currently incompatible with HPC environments because RDP5 is GUI-only.
 A replacement using OpenRDP (CLI-capable) is under evaluation and will be integrated in future versions.
+
+Step 04 still not implement YBYRÁ for comparing alternative trees.
 
 ## Dependencies:
 1. Python (≥3.9)  
