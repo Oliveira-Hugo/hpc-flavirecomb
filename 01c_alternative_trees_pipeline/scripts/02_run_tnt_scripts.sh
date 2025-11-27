@@ -1,5 +1,5 @@
 #!/bin/bash
-TNT_SCRIPTS_DIR="/home/hugo/hpc_flavirecomb/alternative_trees_pipeline/results"
+TNT_SCRIPTS_DIR="/home/hugo/hpc_flavirecomb/01c_alternative_trees_pipeline/results"
 
 TNT_EXEC="/home/hugo/Downloads/TNT-bin/tnt"
 
