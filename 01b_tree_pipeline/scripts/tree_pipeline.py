@@ -205,7 +205,38 @@ def main():
 
     final_out = outdir / f"final_tree_{prefix}.nwk"
     Phylo.write(merged, str(final_out), "newick")
-    print(f"Final merged tree written to: {final_out}")
+    print(f"\nFinal merged tree written to: {final_out}\n")
+
+    # 9) Create topology_final.nwk (remove branch lengths + support + fix names)
+
+    print("Creating topology_final.nwk (branch lengths & support removed, names sanitized)...")
+
+    topology_out = outdir / "topology_final.nwk"
+    tree = Phylo.read(str(final_out), "newick")
+    for clade in tree.find_clades():
+        clade.branch_length = None
+        clade.confidence = None
+    for clade in tree.find_clades():
+        if clade.name:
+            clade.name = clade.name.replace(".", "_")
+
+    Phylo.write(tree, str(topology_out), "newick")
+    txt = topology_out.read_text()
+
+    import re
+
+    txt = re.sub(r"\)(\d+(\.\d+)?)", ")", txt)
+    txt = re.sub(r":\d*\.?\d*", "", txt)
+    txt = txt.replace(" ;", ";")
+    txt = txt.replace(";;", ";")
+
+    if not txt.strip().endswith(";"):
+        txt = txt.strip() + ";"
+
+    topology_out.write_text(txt)
+
+    print(f"Topology-only tree saved to: {topology_out}\n")
+
 
 if __name__ == "__main__":
     main()
