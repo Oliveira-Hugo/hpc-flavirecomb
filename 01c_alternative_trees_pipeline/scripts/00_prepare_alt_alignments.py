@@ -4,8 +4,8 @@ from Bio.SeqRecord import SeqRecord
 from Bio.Align import MultipleSeqAlignment
 import os
 
-input_fasta = "/home/hugo/hpc_flavirecomb/tree_pipeline/data/alignment.fasta"
-output_dir = "/home/hugo/hpc_flavirecomb/alternative_trees_pipeline/results"
+input_fasta = "/home/hugo/hpc_flavirecomb/01b_tree_pipeline/data/alignment.fasta"
+output_dir = "/home/hugo/hpc_flavirecomb/01c_alternative_trees_pipeline/results"
 os.makedirs(output_dir, exist_ok=True)
 
 sequences = list(SeqIO.parse(input_fasta, "fasta"))
