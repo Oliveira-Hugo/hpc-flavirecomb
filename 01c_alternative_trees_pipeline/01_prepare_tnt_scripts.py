@@ -1,8 +1,8 @@
 from Bio import SeqIO
 import os
 
-input_fasta = "/home/hugo/hpc_flavirecomb/tree_pipeline/data/alignment.fasta"
-alternative_alignments_dir = "/home/hugo/hpc_flavirecomb/alternative_trees_pipeline/results"
+input_fasta = "/home/hugo/hpc_flavirecomb/01b_tree_pipeline/data/alignment.fasta"
+alternative_alignments_dir = "/home/hugo/hpc_flavirecomb/01c_alternative_trees_pipeline/results"
 tnt_scripts_dir = alternative_alignments_dir
 os.makedirs(tnt_scripts_dir, exist_ok=True)
 
@@ -23,7 +23,7 @@ taxname = ;
 tplot ;
 save ;
 tsave / ;
-tsave consensus_{terminal}.tnt ;
+tsave * consensus_{terminal}.tnt ;
 nelsen * ;
 save / ;
 tsave / ;
@@ -33,10 +33,8 @@ quit ;
 
 count = 0
 for terminal in sequence_ids:
-    # Replace characters that may break TNT
     terminal_safe = terminal.replace(".", "_").replace("-", "_")
 
-    # Construct path without quotes
     alignment_file_nexus = os.path.join(
         alternative_alignments_dir,
         f"alternative_alignment_{terminal_safe}_removed.nexus"
@@ -46,7 +44,6 @@ for terminal in sequence_ids:
         print(f"Warning: Nexus file not found for {terminal}: {alignment_file_nexus}")
         continue
 
-    # Make path absolute and remove accidental whitespace/newlines
     alignment_file_nexus = os.path.abspath(alignment_file_nexus).strip()
 
     script_content = tnt_template.format(
@@ -55,11 +52,9 @@ for terminal in sequence_ids:
     )
 
     script_path = os.path.join(tnt_scripts_dir, f"script_{terminal_safe}.RUN")
-    # Force Unix line endings
     with open(script_path, "w", newline="\n") as f:
         f.write(script_content)
 
     count += 1
 
 print(f"Generated {count} TNT scripts in {tnt_scripts_dir}")
-
