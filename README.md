@@ -26,11 +26,13 @@ Step 04 still not implement YBYRÁ for comparing alternative trees.
 1. Python (≥3.9)  
 -biopython  
 -pandas  
--snipit  
+-snipit
+-parsl
+-setuptools
 
-2. IQ-TREE v2.0.7
+3. IQ-TREE v2.0.7
 
-3. TNT v1.6
+4. TNT v1.6
 
-4. YBYRÁ
+5. YBYRÁ
 -svgwrite
