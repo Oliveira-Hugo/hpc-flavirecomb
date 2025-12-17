@@ -1,25 +1,20 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-source ~/miniconda3/etc/profile.d/conda.sh
+set -euo pipefail
 
-conda activate snipit-env
+FASTA="$1"
+OUTDIR="$2"
 
-FRAG_DIR="../results/fragments"
-cd "$FRAG_DIR" || { echo "Cannot access $FRAG_DIR"; exit 1; }
+echo "=== DEBUG ==="
+echo "FASTA = ${FASTA}"
+echo "OUTDIR = ${OUTDIR}"
+echo "HOSTNAME = $(hostname)"
+echo "PWD(before cd) = $(pwd)"
 
-for fasta_file in *.fasta; do
-    if [[ -f "$fasta_file" ]]; then
-        echo "Processing $fasta_file..."
+mkdir -p "${OUTDIR}"
+cd "${OUTDIR}"
 
-        snipit "$fasta_file" -s
+echo "PWD(after cd) = $(pwd)"
 
-        if [[ -f "snps.csv" ]]; then
-            new_name="${fasta_file%.fasta}.csv"
-            mv snps.csv "$new_name"
-            echo "Renamed snps.csv to $new_name"
-        else
-            echo "Warning: snps.csv not found for $fasta_file"
-        fi
-    fi
-done
+snipit -s "${FASTA}"
 

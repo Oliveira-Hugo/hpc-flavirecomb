@@ -11,7 +11,7 @@ project_root = script_dir.parent.parent
 fasta_file = project_root / "00_input" / "annotated_denv_genomes_nm.fasta"
 table_file = project_root / "00_input" / "recomb_and_parents.csv"
 output_dir = root / "results" / "fragments"
-alignment_length = 15213  # fixed alignment length
+alignment_length = 15213
 
 # ==== CREATE OUTPUT DIR ====
 os.makedirs(output_dir, exist_ok=True)
