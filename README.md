@@ -30,6 +30,8 @@ Step 04 still not implement YBYRÁ for comparing alternative trees.
 -parsl
 -setuptools
 
+2. RAxML v8.2.12
+
 3. IQ-TREE v2.0.7
 
 4. TNT v1.6
